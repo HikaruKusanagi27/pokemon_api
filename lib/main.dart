@@ -11,9 +11,21 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Image.network(
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Image.network(
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+                height: 100,
+                width: 100,
+              ),
+            ),
+            const Text(
+              'pikachu',
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );
