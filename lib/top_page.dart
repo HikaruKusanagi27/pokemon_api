@@ -6,30 +6,16 @@ class TopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: const [
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-          PikaButton(),
-        ],
-      ),
+      body: ListView.builder(
+          itemCount: 10000,
+          itemBuilder: (context, index) => PikaButton(index: index)),
     );
   }
 }
 
 class PikaButton extends StatelessWidget {
-  const PikaButton({Key? key}) : super(key: key);
+  final int index;
+  const PikaButton({Key? key, required this.index}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
