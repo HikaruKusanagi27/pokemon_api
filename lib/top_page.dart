@@ -8,19 +8,24 @@ class TopPage extends StatelessWidget {
     return Scaffold(
       body: ListView.builder(
           itemCount: 10000,
-          itemBuilder: (context, index) => PikaButton(index: index)),
+          itemBuilder: (context, index) => PokeListItem(index: index)),
     );
   }
 }
 
-class PikaButton extends StatelessWidget {
+class PokeListItem extends StatelessWidget {
   final int index;
-  const PikaButton({Key? key, required this.index}) : super(key: key);
+  const PokeListItem({Key? key, required this.index}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: const Text('pikachu'),
-      onPressed: () => {
+    return ListTile(
+      leading: Image.network(
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+        height: 50,
+        width: 50,
+      ),
+      title: const Text('pikachu'),
+      onTap: () => {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) => const PokeDetail(),
