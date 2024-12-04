@@ -24,7 +24,13 @@ class PokeListItem extends StatelessWidget {
         height: 50,
         width: 50,
       ),
-      title: const Text('pikachu'),
+      title: const Text(
+        'pikachu',
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+      subtitle: const Text(
+        '⚡️electric',
+      ),
       onTap: () => {
         Navigator.of(context).push(
           MaterialPageRoute(
