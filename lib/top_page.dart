@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_api/poke_list_item.dart';
+import 'package:pokemon_api/settingngs.dart';
 
 class TopPage extends StatefulWidget {
   const TopPage({super.key});
@@ -44,21 +45,6 @@ class PokeList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       itemCount: 1010,
       itemBuilder: (context, index) => PokeListItem(index: index),
-    );
-  }
-}
-
-class Settings extends StatelessWidget {
-  const Settings({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        ListTile(
-          leading: Icon(Icons.lightbulb),
-          title: Text('Dark/Light Mode'),
-        ),
-      ],
     );
   }
 }

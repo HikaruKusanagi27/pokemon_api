@@ -3,7 +3,7 @@ import 'package:pokemon_api/poke_derail.dart';
 
 class PokeListItem extends StatelessWidget {
   final int index;
-  const PokeListItem({Key? key, required this.index}) : super(key: key);
+  const PokeListItem({super.key, required this.index});
   @override
   Widget build(BuildContext context) {
     return ListTile(
