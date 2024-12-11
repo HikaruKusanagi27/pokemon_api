@@ -16,6 +16,7 @@ class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
     _current = widget.mode;
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
