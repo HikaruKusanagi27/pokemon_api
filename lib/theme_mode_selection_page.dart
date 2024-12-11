@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
 class ThemeModeSelectionPage extends StatefulWidget {
-  const ThemeModeSelectionPage({Key? key}) : super(key: key);
-
+  const ThemeModeSelectionPage({Key? key, required this.mode})
+      : super(key: key);
+  final ThemeMode mode;
   @override
   _ThemeModeSelectionPageState createState() => _ThemeModeSelectionPageState();
 }
 
 class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
-  ThemeMode _current = ThemeMode.system;
+  late ThemeMode _current;
   @override
+  void initState() {
+    super.initState();
+    _current = widget.mode;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -18,7 +24,8 @@ class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
             ListTile(
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () =>
+                    Navigator.pop<ThemeMode>(context, ThemeMode.light),
               ),
             ),
             RadioListTile<ThemeMode>(
