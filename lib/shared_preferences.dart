@@ -29,11 +29,19 @@ ThemeMode valToMode(int val) {
 
 Future<void> saveThemeMode(ThemeMode mode) async {
   final pref = await SharedPreferences.getInstance();
-  pref.setInt('theme_mode', modeToVal(mode));
+  pref.setString(mode.key, mode.name);
 }
 
 Future<ThemeMode> loadThemeMode() async {
   final pref = await SharedPreferences.getInstance();
-  final ret = valToMode(pref.getInt('theme_mode') ?? 0);
-  return ret;
+  return toMode(pref.getString(defaultTheme.key) ?? defaultTheme.name);
+}
+
+ThemeMode toMode(String str) {
+  return ThemeMode.values.where((val) => val.name == str).first;
+}
+
+extension ThemeModeEx on ThemeMode {
+  String get key => toString().split('.').first;
+  String get name => toString().split('.').last;
 }

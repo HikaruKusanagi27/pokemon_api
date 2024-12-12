@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_api/shared_preferences.dart';
 import 'package:pokemon_api/theme_mode_selection_page.dart';
 
 class Settings extends StatefulWidget {
@@ -10,6 +11,13 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   ThemeMode _themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+    loadThemeMode().then((val) => setState(() => _themeMode = val));
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
