@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+const ThemeMode defaultTheme = ThemeMode.system;
+
 int modeToVal(ThemeMode mode) {
   switch (mode) {
     case ThemeMode.system:
