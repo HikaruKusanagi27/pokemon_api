@@ -18,6 +18,9 @@ class _SettingsState extends State<Settings> {
     loadThemeMode().then((val) => setState(() => _themeMode = val));
   }
 
+  Future<void> saveThemeMode(ThemeMode mode) async {
+    // テーマモードを保存するロジックを追加
+  }
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -29,12 +32,15 @@ class _SettingsState extends State<Settings> {
               ? 'System'
               : (_themeMode == ThemeMode.dark ? 'Dark' : 'Light')),
           onTap: () async {
-            var ret = await Navigator.of(context).push<ThemeMode>(
+            var selectedMode = await Navigator.of(context).push<ThemeMode>(
               MaterialPageRoute(
                 builder: (context) => ThemeModeSelectionPage(mode: _themeMode),
               ),
             );
-            setState(() => _themeMode = ret!);
+            if (selectedMode != null) {
+              setState(() => _themeMode = selectedMode);
+              await saveThemeMode(selectedMode);
+            }
           },
         ),
       ],

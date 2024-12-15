@@ -10,6 +10,7 @@ class ThemeModeSelectionPage extends StatefulWidget {
 
 class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
   late ThemeMode _current;
+
   @override
   void initState() {
     super.initState();
@@ -25,8 +26,7 @@ class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
             ListTile(
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
-                onPressed: () =>
-                    Navigator.pop<ThemeMode>(context, ThemeMode.light),
+                onPressed: () => Navigator.pop<ThemeMode>(context, _current),
               ),
             ),
             RadioListTile<ThemeMode>(
@@ -39,7 +39,7 @@ class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
             ),
             RadioListTile<ThemeMode>(
               value: ThemeMode.dark,
-              groupValue: ThemeMode.system,
+              groupValue: _current,
               title: const Text('Dark'),
               onChanged: (val) => {
                 {setState(() => _current = val!)},
@@ -47,7 +47,7 @@ class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
             ),
             RadioListTile<ThemeMode>(
               value: ThemeMode.light,
-              groupValue: ThemeMode.system,
+              groupValue: _current,
               title: const Text('Light'),
               onChanged: (val) => {
                 {setState(() => _current = val!)},
