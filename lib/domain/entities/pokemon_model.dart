@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-// 本日もDart基礎が分かっていないためDartpadでコード勉強中
+// 引き続きDart基礎が分かっていないためDartpadでコード勉強中
 class Pokemon {
   final int id;
   final String name;
