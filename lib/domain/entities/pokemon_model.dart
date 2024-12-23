@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-// 引き続きDart基礎が分かっていないためDartpadでコード勉強中
 class Pokemon {
   final int id;
   final String name;
@@ -41,4 +40,15 @@ Future<Pokemon> fetchPokemon(int id) async {
   } else {
     throw Exception('Failed to Load Pokemon');
   }
+}
+
+// Dart基礎が分かっていないためDartpadでコード勉強中
+void main() {
+  // int型
+  int age = 25;
+  print("年齢: $age");
+
+  // String型
+  String name = "Alice";
+  print("名前: $name");
 }
