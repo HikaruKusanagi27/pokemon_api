@@ -51,4 +51,8 @@ void main() {
   // String型
   String name = "Alice";
   print("名前: $name");
+
+  int b = 3; // int型として明示的に定義
+
+  b = "Hello World"; // 型が異なるためエラー
 }
