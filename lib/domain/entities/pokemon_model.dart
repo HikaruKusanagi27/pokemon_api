@@ -51,8 +51,9 @@ void main() {
   // String型
   String name = "Alice";
   print("名前: $name");
-
-  var numbers = <int>[1, 2, 3, 4];
+  // 明示的に型を指定する場合
+  List<int> numbers = [1, 2, 3];
+  //var numbers = <int>[1, 2, 3, 4];
   // numbersは List<int> 型として推論される
   numbers.add(5); // 問題なし
   // numbers.add("hello"); // エラー: 'String' を 'int' に代入できない
